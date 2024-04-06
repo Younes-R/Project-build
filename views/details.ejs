@@ -1,0 +1,58 @@
+<html lang="en">
+<%- include("./partials2/head.ejs") %>
+
+<body>
+  <%- include("./partials1/newheader.ejs") %>
+  <%- include("./partials2/nav.ejs") %>
+
+  <div class="details content">
+    <h2><%= post.startPoint %></h2>
+    <div class="content">
+      <p><%= post.body %></p>
+      <p><b>Price: </b> <%= post.price %></p>
+      <p> <b>seatsNumber: </b><%= post.seatsNumber %></p>
+      <br>
+    </div>
+    <h2><%= post.endPoint %></h2>
+    <%// if (userId == post.userId) { %>
+      <a class="delete" data-doc="<%= post._id %>">
+        <img src="/trashcan.svg" alt="delete icon">
+      </a>
+    <% //} %>
+
+    <% if (userId != post.userId) { %>
+      <button id = 'update'>Join the trip !</button>
+    <% } %>
+
+    
+  </div>
+
+  <%- include("./partials2/footer.ejs") %>
+
+  <script>
+    const trashcan = document.querySelector('a.delete');
+
+    trashcan.addEventListener('click', (e) => {
+      const endpoint = `/posts/${trashcan.dataset.doc}`;
+
+      fetch(endpoint, {
+        method: 'DELETE',
+      })
+      .then(response => response.json())
+      .then(data => window.location.href = data.redirect)
+      .catch(err => console.log(err));
+    });
+
+
+    document.getElementById('update').addEventListener('click', async () => {
+      const response = await fetch(`/posts/${trashcan.dataset.doc}`, {
+        method: 'PUT',
+        headers: {
+          'content-Type': 'application/json'
+        }
+      })
+    })
+    
+  </script>
+</body>
+</html>

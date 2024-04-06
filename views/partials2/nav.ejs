@@ -1,0 +1,47 @@
+<nav>
+  <div class="site-title">
+    <a href="/"><h1>  Fi Tri9i  </h1></a>
+    <p>An E-Driving Site</p>
+   
+  </div>
+  <div class="search">
+    <form action="/posts/test2" method="post">
+      <input type="text" name="sea" id="sea">
+      <input type="submit" value="submit">
+    </form>
+  </div>
+  
+  <ul>
+    <li>
+      
+    </li>
+    <li><a href="/posts">Posts</a></li>
+    <li><a href="/about">About</a></li>
+    <li><a href="/posts/create">New Post</a></li>
+  </ul>
+</nav>
+
+
+<script>
+ /* const form = document.querySelector('form');
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const sea = form.sea.value;
+    console.log(sea);
+
+    try {
+      const res = await fetch('posts/test',{
+        method: 'POST',
+        body: JSON.stringify({sea}),
+        headers: { 'content-type': 'application/json' }
+      });
+      const data = await res.json();
+      console.log(data);
+    }
+    catch (err) {
+      console.log(err)
+    }
+  })
+
+ */
+</script>

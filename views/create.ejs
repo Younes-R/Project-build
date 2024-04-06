@@ -1,0 +1,29 @@
+<html lang="en">
+<%- include("./partials2/head.ejs") %>
+
+<body>
+  <%- include("./partials1/newheader.ejs") %>
+  <%- include("./partials2/nav.ejs") %>
+
+  <div class="create-blog content">
+    <form action="/posts" method="post">
+      <label for="startPoint">Start Point:</label>
+      <input type="text" id="startPoint" name="startPoint" required>
+      <label for="endPoint">End Point:</label>
+      <input type="text" id="endPoint" name="endPoint" required>
+      <label for="body">Post Body:</label>
+      <textarea id="body" name="body" required></textarea>
+      <label for="price">Price:</label>
+      <input type="number" id="price" name="price" required>
+      <label for="seatsNumber">seatsNumber:</label>
+      <input type="number" id="seatsNumber" name="seatsNumber" required>
+
+      
+
+      <button type="submit" >Submit</button>
+    </form>
+  </div>
+
+  <%- include("./partials2/footer.ejs") %>
+</body>
+</html>
